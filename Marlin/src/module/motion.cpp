@@ -228,6 +228,19 @@ void report_real_position() {
   report_more_positions();
 }
 
+void report_home_offset() {
+  SERIAL_ECHOLNPAIR_P(
+    #if IS_CARTESIAN
+        PSTR("Home offset: X"), LINEAR_UNIT(home_offset.x)
+      , SP_Y_STR, LINEAR_UNIT(home_offset.y)
+      , SP_Z_STR
+    #else
+      PSTR("Home offset: Z")
+    #endif
+    , LINEAR_UNIT(home_offset.z)
+  );
+}
+
 // Report the logical current position according to the most recent G-code command
 void report_current_position() {
   report_logical_position(current_position);

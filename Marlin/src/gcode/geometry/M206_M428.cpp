@@ -46,7 +46,7 @@ void GcodeSuite::M206() {
     if (parser.seen('P')) set_home_offset(B_AXIS, parser.value_float()); // Psi
   #endif
 
-  report_current_position();
+  report_home_offset();
 }
 
 /**
@@ -77,7 +77,7 @@ void GcodeSuite::M428() {
   }
 
   LOOP_XYZ(i) set_home_offset((AxisEnum)i, diff[i]);
-  report_current_position();
+  report_home_offset();
   LCD_MESSAGEPGM(MSG_HOME_OFFSETS_APPLIED);
   BUZZ(100, 659);
   BUZZ(100, 698);

@@ -202,6 +202,8 @@ inline float home_bump_mm(const AxisEnum axis) {
 
 #endif // !HAS_SOFTWARE_ENDSTOPS
 
+void report_home_offset();
+
 void report_real_position();
 void report_current_position();
 void report_current_position_projected();
