@@ -692,7 +692,7 @@
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
-//#define ENDSTOP_INTERRUPTS_FEATURE
+#define ENDSTOP_INTERRUPTS_FEATURE
 
 /**
  * Endstop Noise Threshold
@@ -981,7 +981,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -45, 2, -2.5 }
+#define NOZZLE_TO_PROBE_OFFSET { -44, -4.9, -3.25 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1034,7 +1034,7 @@
 #define Z_PROBE_OFFSET_RANGE_MAX 20
 
 // Enable the M48 repeatability test to test probe accuracy
-//#define Z_MIN_PROBE_REPEATABILITY_TEST
+#define Z_MIN_PROBE_REPEATABILITY_TEST
 
 // Before deploy/stow pause for user confirmation
 //#define PAUSE_BEFORE_DEPLOY_STOW
@@ -1117,12 +1117,14 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 235
-#define Y_BED_SIZE 235
+// X bed size is extended by 24mm to allow head to travel further to the right to get probe closer to the side of the bed 
+// (220(would be X_BED_SIZE) + 24(extra travel) = probe get to pos 200 as if there was probe margin 20 (probe offset x is 44))
+#define X_BED_SIZE 244
+#define Y_BED_SIZE 225
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -5
-#define Y_MIN_POS -10
+#define X_MIN_POS -3
+#define Y_MIN_POS -11
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
