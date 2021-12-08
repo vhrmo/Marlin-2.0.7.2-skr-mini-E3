@@ -2,6 +2,13 @@
 
 Baseline source code taken from [Marlin-2.0.7.2-SKR-mini-E3-V2.0](https://github.com/bigtreetech/BIGTREETECH-SKR-mini-E3/tree/master/firmware/V2.0/Marlin-2.0.7.2-SKR-mini-E3-V2.0) repository.
 
+Default build is set to: STM32F103RC_btt_512K_USB
+
+Result is stored in .pio/build/STM32F103RC_btt_512K_USB/firmware.bin
+
+After re-flashing the firmware - check if you have BL Touch available in menu 
+to avoid Z endstop crashing when homing print head.
+
 # Marlin 3D Printer Firmware
 
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
